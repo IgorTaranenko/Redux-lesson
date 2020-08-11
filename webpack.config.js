@@ -5,7 +5,7 @@ module.exports = {
 	context: path.resolve(__dirname, 'src'),
 	mode: 'development',
 	entry: {
-		main: './index.js'
+		main: './app.js'
 	},
 	output: {
 		filename: 'bundle.js',
@@ -16,6 +16,11 @@ module.exports = {
 			template: './index.html'
 		})
 	],
+	optimization: {
+		splitChunks: {
+			chunks: 'all'
+		}
+	},
 	module: {
 		rules: [
 			{
@@ -24,8 +29,12 @@ module.exports = {
 			},
 			{
 				test: /\.less$/,
-			   loader: 'less-loader', 
+			   use: ['style-loader', 'css-loader', 'less-loader'], 
 			},
+			{
+				test: /\.(ttf|woff|woff2|eot)$/,
+				use: ['file-loader']
+			}
 		]
 	}
 }

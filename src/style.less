@@ -1,4 +1,31 @@
-// @import "~normalize.css";
-.container {
+@import "~normalize.css";
+@import "book_antiqua.css";
 
+body {
+	font-family: "book_antiqua", sans-serif;
 }
+
+h1, h2, h3, h4, h5{
+	margin: 0;
+}
+
+.title {
+	margin: 1rem 4rem;
+	border-bottom: 2px solid #ccc;
+	h1 {
+		text-align: center;
+	}
+}
+.box {
+	border: 2px solid #ccc;
+	margin: 0 4rem;
+	padding: 1rem;
+}
+.counter {
+	margin-bottom: 1rem;
+	&-title {
+		font-size: 1.4rem;
+		font-weight: bold;	
+	}
+}
+
