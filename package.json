@@ -1,0 +1,33 @@
+{
+  "name": "redux-lesson",
+  "version": "1.0.0",
+  "description": "learning redux ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IgorTaranenko/Redux-lesson.git"
+  },
+  "keywords": [
+    "js",
+    "redux"
+  ],
+  "author": "Igor Taranenko",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/IgorTaranenko/Redux-lesson/issues"
+  },
+  "homepage": "https://github.com/IgorTaranenko/Redux-lesson#readme",
+  "devDependencies": {
+    "html-webpack-plugin": "^4.3.0",
+    "less": "^3.12.2",
+    "less-loader": "^6.2.0",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12"
+  },
+  "dependencies": {
+    "normalize.css": "^8.0.1"
+  }
+}
