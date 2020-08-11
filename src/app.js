@@ -1,16 +1,21 @@
 import * as $ from 'jquery'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './style.less'
-import {createStore} from 'redux'
+import {createStore, applyMiddleware} from 'redux'
+import thunk from 'redux-thunk'
 import {rootReducer} from './redux/rootReducer.js'
-import {increment, decrement} from './redux/actions.js'
+import {asyncIncrement, increment, decrement} from './redux/actions.js'
 
 const counter = document.getElementById('counter')
 const addBtn = document.getElementById('Add')
 const removeBtn = document.getElementById('Remove')
 const asyncBtn = document.getElementById('Async')
 
-const store = createStore(rootReducer, 0);
+const store = createStore(
+	rootReducer, 
+	0,
+	applyMiddleware(thunk),
+	);
 
 addBtn.addEventListener('click', () => {
 	store.dispatch(increment());
@@ -21,7 +26,7 @@ removeBtn.addEventListener('click', () => {
 })
 
 asyncBtn.addEventListener('click', () => {
-
+	store.dispatch(asyncIncrement());
 })
 
 store.subscribe(() => {
