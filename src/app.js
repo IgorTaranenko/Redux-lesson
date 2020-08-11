@@ -4,7 +4,7 @@ import './style.less'
 import {createStore, applyMiddleware} from 'redux'
 import thunk from 'redux-thunk'
 import {rootReducer} from './redux/rootReducer.js'
-import {asyncIncrement, increment, decrement} from './redux/actions.js'
+import {asyncIncrement, changeTheme, increment, decrement} from './redux/actions.js'
 
 const counter = document.getElementById('counter')
 const addBtn = document.getElementById('Add')
@@ -15,7 +15,6 @@ const themeBtn = document.getElementById('theme')
 
 const store = createStore(
 	rootReducer, 
-	0,
 	applyMiddleware(thunk),
 	);
 
@@ -31,10 +30,21 @@ asyncBtn.addEventListener('click', () => {
 	store.dispatch(asyncIncrement());
 })
 
+themeBtn.addEventListener('click', () => {
+	const newTheme = document.body.classList.contains('light')
+	? 'dark'
+	: 'light'
+	store.dispatch(changeTheme(newTheme));
+})
+
 store.subscribe(() => {
 	const state = store.getState();
+	counter.textContent = state.counter;
+	document.body.className = state.theme.value;
 
-	counter.textContent = state
+	[addBtn, removeBtn, themeBtn, asyncBtn].forEach((btn) => {
+		btn.disabled = state.theme.disabled;
+	})
 })
 
 store.dispatch({type: 'INIT'})
