@@ -10,11 +10,15 @@ h1, h2, h3, h4, h5{
 }
 
 .title {
+	display: flex;
+	flex-direction: row;
 	margin: 1rem 4rem;
 	border-bottom: 2px solid #ccc;
-	h1 {
-		text-align: center;
-	}
+	justify-content: space-between;
+	align-items: center;
+}
+#theme {
+	margin: .5rem 0;
 }
 .box {
 	border: 2px solid #ccc;

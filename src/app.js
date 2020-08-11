@@ -10,6 +10,8 @@ const counter = document.getElementById('counter')
 const addBtn = document.getElementById('Add')
 const removeBtn = document.getElementById('Remove')
 const asyncBtn = document.getElementById('Async')
+const themeBtn = document.getElementById('theme')
+
 
 const store = createStore(
 	rootReducer, 
